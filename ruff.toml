@@ -1,0 +1,19 @@
+# Recommended ruff.toml for universal project use
+target-version = "py312" # Set to your minimum Python version
+line-length = 100        # Slightly wider than Black's 88, often preferred
+extend-exclude = [".venv", "venv", "build", "dist"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+
+[lint]
+# E, F, I, B, C4, UP are good standard, high-value rules
+select = ["E", "F", "I", "B", "C4", "UP", "N", "PTH", "S"]
+ignore = ["E501"] # Ignore line-length check if using formatter
+
+[lint.isort]
+known-first-party = ["."] # Update with your package name
+
+[lint.pydocstyle]
+convention = "google" # Use numpy or google for docstrings
